@@ -5,7 +5,7 @@
 
 async function fecthData() {
 	const url =
-		"http://127.0.0.1:5500/coursera/travelRecommendation/travel_recommendation_api.json";
+		"travel_recommendation_api.json";
 	try {
 		const response = await fetch(url);
 		const data = await response.json();
