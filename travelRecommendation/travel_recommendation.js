@@ -4,8 +4,7 @@
 // };
 
 async function fecthData() {
-	const url =
-		"travel_recommendation_api.json";
+	const url = "travel_recommendation_api.json";
 	try {
 		const response = await fetch(url);
 		const data = await response.json();
@@ -44,12 +43,22 @@ searchButton.addEventListener("click", async () => {
 
 			let destinationsHtml = "";
 			data.forEach((destination) => {
-				console.log(destination);
+				let name, imageUrl, description;
+				if (keyword === "countries") {
+					name = destination[0].name;
+					imageUrl = destination[0].imageUrl;
+					description = destination[0].description;
+				} else {
+					name = destination.name;
+					imageUrl = destination.imageUrl;
+					description = destination.description;
+				}
+				// console.log(destination);
 				destinationsHtml += `<div class="destination-card">
-				<img src="${destination.imageUrl}" alt="${destination.name}">
+				<img src="${imageUrl}" alt="${name}">
 				<div class="card-content">
-					<h3>${destination.name}</h3>
-					<p>${destination.description}</p>
+					<h3>${name}</h3>
+					<p>${description}</p>
 					<a href="#" class="visit-btn">Visit</a>
 				</div>
 			</div>`;
