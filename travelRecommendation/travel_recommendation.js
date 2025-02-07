@@ -45,9 +45,9 @@ searchButton.addEventListener("click", async () => {
 			data.forEach((destination) => {
 				let name, imageUrl, description;
 				if (keyword === "countries") {
-					name = destination[0].name;
-					imageUrl = destination[0].imageUrl;
-					description = destination[0].description;
+					name = destination.cities[0].name;
+					imageUrl = destination.cities[0].imageUrl;
+					description = destination.cities[0].description;
 				} else {
 					name = destination.name;
 					imageUrl = destination.imageUrl;
